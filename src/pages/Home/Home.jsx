@@ -1,10 +1,12 @@
+import Categories from "../../components/Rooms/Categories/Categories";
 import Rooms from "../../components/Rooms/Rooms";
 
 const Home = () => {
     return (
         <div>
-            <h1>Welcome to AuraStay</h1>
             {/* This is category section */}
+            <Categories></Categories>
+
             {/* this is rooms section */}
             <Rooms></Rooms>
         </div>
