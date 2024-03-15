@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useNavigate, useSearchParams } from "react-router-dom";
 import qs from 'query-string'
@@ -5,18 +6,19 @@ import qs from 'query-string'
 const CategoryCell = ({ label, icon: Icon, selected }) => {
     const [params, setParams] = useSearchParams();
     const navigate = useNavigate();
+
+    // onclick handeler for dynamic url change
     const handleClick = () => {
         let currentQuery = {}
         if (params) {
             currentQuery = qs.parse(params.toString)
-
-            const updatedQuery = { ...currentQuery, category: label }
-            const url = qs.stringifyUrl({
-                url: '/',
-                query: updatedQuery
-            })
-            navigate(url)
         }
+        const updatedQuery = { ...currentQuery, category: label }
+        const url = qs.stringifyUrl({
+            url: '/',
+            query: updatedQuery
+        })
+        navigate(url)
     }
     params.get('category')
     return (
