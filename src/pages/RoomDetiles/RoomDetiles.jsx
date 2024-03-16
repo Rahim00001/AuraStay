@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../components/Shared/Loader";
 import Header from "../../components/RoomDetiles/Header";
 import RoomInfo from "../../components/RoomDetiles/RoomInfo";
+import RoomReservation from "../../components/RoomDetiles/RoomReservation";
 
 const RoomDetiles = () => {
     const { id } = useParams()
@@ -31,9 +32,9 @@ const RoomDetiles = () => {
                 <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
                     {/* room Info */}
                     <RoomInfo room={room}></RoomInfo>
-                    {/* Calender */}
+                    {/* Resarvation */}
                     <div className="md:col-span-3 order-first md:order-last mb-10">
-
+                        <RoomReservation></RoomReservation>
                     </div>
                 </div>
             </div>
