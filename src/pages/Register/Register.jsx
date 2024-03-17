@@ -4,9 +4,10 @@ import { imageUpload } from '../../api/imgbbUtils';
 import useAuth from '../../hooks/useAuth';
 import { getToken, saveUser } from '../../api/auth';
 import toast from 'react-hot-toast';
+import { TbFidgetSpinner } from 'react-icons/tb'
 
 const Register = () => {
-    const { createUser, updateUserProfile } = useAuth();
+    const { createUser, updateUserProfile, googleLogin, loading } = useAuth();
     const navigate = useNavigate()
     // form submit handler
     const handleSubmit = async event => {
@@ -41,6 +42,27 @@ const Register = () => {
             toast.error(err?.message)
         }
     }
+
+    // Handle Google Signin
+    const handleGoogleSignIn = async () => {
+        try {
+            // User Registration using google
+            const result = await googleLogin()
+
+            // save user data in database
+            const dbResponse = await saveUser(result?.user)
+            console.log(dbResponse)
+
+            //get token
+            await getToken(result?.user?.email)
+            navigate('/')
+            toast.success('Signup Successful')
+        } catch (err) {
+            console.log(err)
+            toast.error(err?.message)
+        }
+    }
+
     return (
         <div className='flex justify-center items-center min-h-screen'>
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
@@ -117,7 +139,7 @@ const Register = () => {
                             type='submit'
                             className='bg-rose-500 w-full rounded-md py-3 text-white'
                         >
-                            Continue
+                            {loading ? <TbFidgetSpinner className='animate-spin m-auto'></TbFidgetSpinner> : 'Register'}
                         </button>
                     </div>
                 </form>
@@ -128,7 +150,7 @@ const Register = () => {
                     </p>
                     <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
                 </div>
-                <div className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
+                <div onClick={handleGoogleSignIn} className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
                     <FcGoogle size={32} />
 
                     <p>Continue with Google</p>
