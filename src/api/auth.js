@@ -20,7 +20,7 @@ export const getToken = async email => {
 }
 
 // Clear token from browser
-// export const clearCookie = async () => {
-//     const { data } = await axiosSecure.get('/logout')
-//     return data
-// }
+export const clearCookie = async () => {
+    const { data } = await axiosSecure.get('/logout')
+    return data
+}
