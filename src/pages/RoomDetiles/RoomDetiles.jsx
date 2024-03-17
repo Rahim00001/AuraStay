@@ -5,11 +5,13 @@ import Loader from "../../components/Shared/Loader";
 import Header from "../../components/RoomDetiles/Header";
 import RoomInfo from "../../components/RoomDetiles/RoomInfo";
 import RoomReservation from "../../components/RoomDetiles/RoomReservation";
+import { Helmet } from "react-helmet-async";
 
 const RoomDetiles = () => {
     const { id } = useParams()
     const [room, setRoom] = useState({});
     const [loading, setLoading] = useState(false);
+    console.log(room.title);
 
     useEffect(() => {
         setLoading(true);
@@ -25,6 +27,9 @@ const RoomDetiles = () => {
 
     return (
         <Container>
+            <Helmet>
+                <title> {`${room.title}`}</title>
+            </Helmet>
             <div className="max-w-screen-lg mx-auto">
                 <div className="flex flex-col gap-6">
                     <Header room={room}></Header>
