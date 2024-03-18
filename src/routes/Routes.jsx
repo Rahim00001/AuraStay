@@ -7,6 +7,8 @@ import Register from "../pages/Register/Register";
 import RoomDetiles from "../pages/RoomDetiles/RoomDetiles";
 import PrivateRoute from "./PrivateRoute";
 import { getRoom } from "../api/rooms";
+import Dashboard from "../layouts/DashboardLayout";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 export const router = createBrowserRouter([
     {
@@ -33,4 +35,11 @@ export const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
     },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout></DashboardLayout>,
+        children: [
+            {}
+        ]
+    }
 ]);
