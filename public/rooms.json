@@ -36,5 +36,81 @@
             "email": "shakilatik.ph@gmail.com"
         },
         "category": "Beach"
+    },
+    {
+        "_id": "654f6d935a8b09d18da69cb",
+        "location": "Tuscany, Italy",
+        "title": "Rustic Villa in the Heart of Tuscany",
+        "from": "2023-12-10T18:00:00.000Z",
+        "to": "2023-12-15T18:00:00.000Z",
+        "price": 400,
+        "guests": "8",
+        "bedrooms": "4",
+        "bathrooms": "3",
+        "description": "Escape to the rolling hills of Tuscany and experience true tranquility in our charming rustic villa. Surrounded by vineyards and olive groves, this spacious villa offers a perfect retreat for families and groups. Enjoy stunning views of the countryside from the private terrace or take a dip in the refreshing pool. With its traditional decor and modern amenities, this villa provides the perfect blend of comfort and authenticity.",
+        "image": "https://i.ibb.co/P4bKgC4/room1.jpg",
+        "host": {
+            "name": "Giulia Rossi",
+            "image": "https://i.ibb.co/S5GNzJ9/women.jpg",
+            "email": "giulia.rossi@example.com"
+        },
+        "category": "Countryside"
+    },
+    {
+        "_id": "654f6d935a8b09d18da69cc",
+        "location": "Miami, United States",
+        "title": "Luxury Villa with Private Pool in Miami",
+        "from": "2023-12-05T18:00:00.000Z",
+        "to": "2023-12-10T18:00:00.000Z",
+        "price": 800,
+        "guests": "10",
+        "bedrooms": "5",
+        "bathrooms": "5",
+        "description": "Indulge in the ultimate luxury getaway at our stunning villa in Miami. Featuring a private pool surrounded by lush tropical gardens, this exclusive retreat offers unparalleled comfort and relaxation. Spend your days lounging by the poolside, sipping cocktails, or exploring the vibrant city nearby. With spacious living areas, stylish decor, and top-notch amenities, this villa is perfect for a memorable vacation with family and friends.",
+        "image": "https://i.ibb.co/4JTkVCH/room7.jpg",
+        "host": {
+            "name": "Alexandra Johnson",
+            "image": "https://i.ibb.co/XsH6L0D/women1.jpg",
+            "email": "alexandra.johnson@example.com"
+        },
+        "category": "Pools"
+    },
+    {
+        "_id": "654f6d935a8b09d18da69cd",
+        "location": "Maui, Hawaii",
+        "title": "Secluded Beachfront Villa on Maui",
+        "from": "2023-11-20T18:00:00.000Z",
+        "to": "2023-11-25T18:00:00.000Z",
+        "price": 490,
+        "guests": "4",
+        "bedrooms": "2",
+        "bathrooms": "2",
+        "description": "Escape to paradise at our luxurious beachfront villa on the beautiful island of Maui. Nestled amidst lush tropical gardens, this secluded retreat offers breathtaking ocean views and direct access to a pristine sandy beach. Relax on your private lanai, take a dip in the crystal-clear waters, or explore the island's natural wonders. With its tranquil ambiance and first-class amenities, this villa promises an unforgettable island getaway.",
+        "image": "https://i.ibb.co/DtY9fRB/room6.jpg",
+        "host": {
+            "name": "Michael Smith",
+            "image": "https://i.ibb.co/9vVRxhh/user2.jpg",
+            "email": "michael.smith@example.com"
+        },
+        "category": "Island"
+    },
+    {
+        "_id": "654f6d935ae09d18da69cb",
+        "location": "Los Angeles, California, USA",
+        "title": "Luxurious Urban Loft in Downtown LA",
+        "from": "2023-12-10T18:00:00.000Z",
+        "to": "2023-12-15T18:00:00.000Z",
+        "price": 450,
+        "guests": "4",
+        "bedrooms": "2",
+        "bathrooms": "2",
+        "description": "Experience the epitome of modern living in this luxurious urban loft located in the heart of Downtown LA. With floor-to-ceiling windows offering breathtaking views of the city skyline, this sleek and stylish loft is the perfect retreat for your stay in Los Angeles. Enjoy access to state-of-the-art amenities, including a rooftop pool, fitness center, and 24-hour concierge service. Whether you're in town for business or pleasure, this urban oasis offers the ultimate in comfort and convenience.",
+        "image": "https://i.ibb.co/v4Xx7tY/room2.jpg",
+        "host": {
+            "name": "Sophia Martinez",
+            "image": "https://i.ibb.co/XsH6L0D/women1.jpg",
+            "email": "sophia.martinez@example.com"
+        },
+        "category": "Modern"
     }
 ]

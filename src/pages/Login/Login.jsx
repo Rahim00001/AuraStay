@@ -7,7 +7,7 @@ import { TbFidgetSpinner } from 'react-icons/tb'
 import { Helmet } from 'react-helmet-async'
 
 const Login = () => {
-    const { signInUser, signInWithGoogle, loading } = useAuth()
+    const { signInUser, googleLogin, loading } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
     const from = location?.state?.from?.pathname || '/'
@@ -36,7 +36,7 @@ const Login = () => {
     const handleGoogleSignIn = async () => {
         try {
             //User login using google
-            const result = await signInWithGoogle()
+            const result = await googleLogin()
 
             //save user data in database
             const dbResponse = await saveUser(result?.user)
