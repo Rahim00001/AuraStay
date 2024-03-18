@@ -9,6 +9,8 @@ import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
 import { BsGraphUp } from 'react-icons/bs'
+import { BsFillHouseAddFill } from "react-icons/bs";
+import { MdHomeWork } from "react-icons/md";
 
 const Sidebar = () => {
     const [toggle, setToggle] = useState(false)
@@ -60,6 +62,16 @@ const Sidebar = () => {
                                 icon={BsGraphUp}
                                 label='Statistics'
                                 address='/dashboard'
+                            />
+                            <MenuItem
+                                icon={BsFillHouseAddFill}
+                                label='Add Room'
+                                address='add-room'
+                            />
+                            <MenuItem
+                                icon={MdHomeWork}
+                                label='My Listings'
+                                address='my-listings'
                             />
 
                             {/* Menu Items */}
