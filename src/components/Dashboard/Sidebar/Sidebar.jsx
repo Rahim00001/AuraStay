@@ -12,11 +12,14 @@ import { BsGraphUp } from 'react-icons/bs'
 import { BsFillHouseAddFill } from "react-icons/bs";
 import { MdHomeWork } from "react-icons/md";
 import useAuth from '../../../hooks/useAuth'
+import useRole from '../../../hooks/useRole'
 
 const Sidebar = () => {
     const { logOutUser } = useAuth()
     const [toggle, setToggle] = useState(false)
     const [isActive, setActive] = useState(false)
+    const [role] = useRole()
+    console.log('Role====>', role);
 
     //   For guest/host menu item toggle button
     const toggleHandler = event => {
