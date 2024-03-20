@@ -17,3 +17,9 @@ export const addRoom = async roomData => {
     const { data } = await axiosSecure.post(`/rooms`, roomData)
     return data
 }
+
+// Load all rooms for host
+export const getHostRooms = async email => {
+    const { data } = await axiosSecure(`/rooms/${email}`)
+    return data
+}
