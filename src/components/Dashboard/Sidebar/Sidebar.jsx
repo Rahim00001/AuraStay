@@ -9,17 +9,17 @@ import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
 import { BsGraphUp } from 'react-icons/bs'
-import { BsFillHouseAddFill } from "react-icons/bs";
-import { MdHomeWork } from "react-icons/md";
 import useAuth from '../../../hooks/useAuth'
 import useRole from '../../../hooks/useRole'
+import HostMenu from './HostMenu'
+import GuestMenu from './GuestMenu'
+import AdminMenu from './AdminMenu'
 
 const Sidebar = () => {
     const { logOutUser } = useAuth()
     const [toggle, setToggle] = useState(false)
     const [isActive, setActive] = useState(false)
     const [role] = useRole()
-    console.log('Role====>', role);
 
     //   For guest/host menu item toggle button
     const toggleHandler = event => {
@@ -62,25 +62,23 @@ const Sidebar = () => {
                     <div className='flex flex-col justify-between flex-1 mt-6'>
                         {/* If a user is host */}
                         <ToggleBtn toggleHandler={toggleHandler} />
+
                         <nav>
                             <MenuItem
                                 icon={BsGraphUp}
                                 label='Statistics'
                                 address='/dashboard'
                             />
-                            <MenuItem
-                                icon={BsFillHouseAddFill}
-                                label='Add Room'
-                                address='add-room'
-                            />
-                            <MenuItem
-                                icon={MdHomeWork}
-                                label='My Listings'
-                                address='my-listings'
-                            />
+                            {/*Host Menu Items */}
+                            {role === 'host' && <HostMenu></HostMenu>}
 
-                            {/* Menu Items */}
+                            {/*guest Menu Items */}
+                            {role === 'guest' && <GuestMenu></GuestMenu>}
+
+                            {/*Admin Menu Items */}
+                            {role === 'admin' && <AdminMenu></AdminMenu>}
                         </nav>
+
                     </div>
                 </div>
 
