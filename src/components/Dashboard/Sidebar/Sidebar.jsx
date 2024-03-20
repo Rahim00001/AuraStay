@@ -60,8 +60,9 @@ const Sidebar = () => {
 
                     {/* Nav Items */}
                     <div className='flex flex-col justify-between flex-1 mt-6'>
+
                         {/* If a user is host */}
-                        <ToggleBtn toggleHandler={toggleHandler} />
+                        {role === 'host' && <ToggleBtn toggleHandler={toggleHandler} />}
 
                         <nav>
                             <MenuItem
@@ -70,7 +71,7 @@ const Sidebar = () => {
                                 address='/dashboard'
                             />
                             {/*Host Menu Items */}
-                            {role === 'host' && <HostMenu></HostMenu>}
+                            {role === 'host' ? toggle ? <HostMenu></HostMenu> : <GuestMenu></GuestMenu> : ''}
 
                             {/*guest Menu Items */}
                             {role === 'guest' && <GuestMenu></GuestMenu>}
