@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './CheckoutForm.css'
 import useAuth from '../../hooks/useAuth'
 import { ImSpinner9 } from 'react-icons/im'
+import { createPaymentIntent, saveBookingInfo, updateStatus } from '../../api/bookings'
+import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 const CheckoutForm = ({ bookingInfo, closeModal }) => {
     const stripe = useStripe()
@@ -13,8 +16,19 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
     const [cardError, setCardError] = useState('')
     const [clientSecret, setClientSecret] = useState('')
     const [processing, setProcessing] = useState(false)
-
+    const navigate = useNavigate()
     // Create Payment Intent
+    useEffect(() => {
+        if (bookingInfo.price > 0) {
+            createPaymentIntent({ price: bookingInfo.price })
+                .then(data => {
+                    console.log(data.clientSecret)
+                    setClientSecret(data.clientSecret)
+                })
+        }
+    }, [bookingInfo])
+
+
     const handleSubmit = async event => {
         event.preventDefault()
 
@@ -62,13 +76,26 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
 
         if (paymentIntent.status === 'succeeded') {
             // save payment information to the server
-            // Update room status in db
             const paymentInfo = {
                 ...bookingInfo,
                 transactionId: paymentIntent.id,
                 date: new Date(),
             }
-
+            try {
+                // save payment information to the server
+                await saveBookingInfo(paymentInfo)
+                // Update room status in db
+                await updateStatus(bookingInfo.roomId, true)
+                const text = `Booking Successful! ${paymentIntent.id}`
+                toast.success(text)
+                navigate('/dashboard/my-bookings')
+            } catch (err) {
+                console.log(err)
+                toast.error(err.message)
+            } finally {
+                setProcessing(false)
+            }
+            // Update room status in db
             setProcessing(false)
         }
     }
