@@ -85,6 +85,15 @@ export const router = createBrowserRouter([
                     <PrivateRoute>
                         <MyBookings></MyBookings>
                     </PrivateRoute>
+            },
+            {
+                path: 'manage-bookings',
+                element:
+                    <PrivateRoute>
+                        <HostRoute>
+                            <MyBookings></MyBookings>
+                        </HostRoute>
+                    </PrivateRoute>
             }
         ]
     }
