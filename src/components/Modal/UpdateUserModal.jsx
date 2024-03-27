@@ -6,7 +6,7 @@ import { AiOutlineDown } from 'react-icons/ai'
 const roles = ['guest', 'host', 'admin']
 
 const UpdateUserModal = ({
-    setIsEditModalOpen,
+    setIsOpen,
     isOpen,
     modalHandler,
     user,
@@ -17,7 +17,7 @@ const UpdateUserModal = ({
             <Dialog
                 as='div'
                 className='relative z-10'
-                onClose={() => setIsEditModalOpen(false)}
+                onClose={() => setIsOpen(false)}
             >
                 <Transition.Child
                     as={Fragment}
@@ -117,7 +117,7 @@ const UpdateUserModal = ({
                                     <button
                                         type='button'
                                         className='inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'
-                                        onClick={() => setIsEditModalOpen(false)}
+                                        onClick={() => setIsOpen(false)}
                                     >
                                         Cancel
                                     </button>
