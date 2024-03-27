@@ -4,6 +4,7 @@ import { GrUserAdmin } from 'react-icons/gr'
 import useRole from '../../../hooks/useRole'
 const GuestMenu = () => {
     const [role] = useRole()
+
     return (
         <>
             <MenuItem
