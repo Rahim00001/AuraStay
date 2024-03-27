@@ -5,9 +5,7 @@ import { getAllUsers } from '../../../api/auth'
 import UserDataRow from '../../../components/Dashboard/TableRows/UserDataRow'
 
 const ManageUsers = () => {
-    const { data: users = [],
-        //  refetch
-    } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => await getAllUsers(),
     })
@@ -52,7 +50,7 @@ const ManageUsers = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {users && users.map(user => <UserDataRow key={user._id} user={user}></UserDataRow>)}
+                                    {users && users.map(user => <UserDataRow key={user._id} user={user} refetch={refetch}></UserDataRow>)}
                                 </tbody>
                             </table>
                         </div>
