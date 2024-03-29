@@ -21,7 +21,7 @@ const GuestMenu = () => {
             if (data.modifiedCount > 0) {
                 toast.success('Success!, Please wait for admin confirmation.')
             } else {
-                toast.success('Please!, Wait for admin approval👊')
+                toast.success('Please!, Wait for admin approval 🛠')
             }
         } catch (err) {
             console.log(err)
