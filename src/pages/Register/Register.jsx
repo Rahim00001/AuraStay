@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
-import { imageUpload } from '../../api/imgbbUtils';
+import { imageUpload } from '../../api/utils';
 import useAuth from '../../hooks/useAuth';
 import { getToken, saveUser } from '../../api/auth';
 import toast from 'react-hot-toast';
