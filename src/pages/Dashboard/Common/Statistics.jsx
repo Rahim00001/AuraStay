@@ -2,6 +2,7 @@ import useRole from '../../../hooks/useRole'
 import { Helmet } from 'react-helmet-async'
 import AdminStatistics from '../../../components/Dashboard/Statistics/AdminStatistics'
 import HostStatistics from '../../../components/Dashboard/Statistics/HostStatistics'
+import GuestStatistics from '../../../components/Dashboard/Statistics/GuestStatistics'
 
 const Statistics = () => {
     const [role] = useRole()
@@ -13,6 +14,7 @@ const Statistics = () => {
             </Helmet>
             {role === 'admin' && <AdminStatistics />}
             {role === 'host' && <HostStatistics />}
+            {role === 'guest' && <GuestStatistics />}
         </div>
     )
 }
