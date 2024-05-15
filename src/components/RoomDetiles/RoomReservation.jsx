@@ -20,10 +20,23 @@ const RoomReservation = ({ room }) => {
         endDate: new Date(room?.to),
         key: 'selection',
     })
+
+    // total days
     const totalDays = parseInt(
         formatDistance(new Date(room?.to), new Date(room?.from)).split(' ')[0]
     )
+
+    // total price
     const totalPrice = totalDays * room?.price
+
+    const handleDateChange = ranges => {
+        console.log(ranges)
+        setValue({
+            startDate: new Date(room?.from),
+            endDate: new Date(room?.to),
+            key: 'selection',
+        })
+    }
 
     const [bookingInfo, setBookingInfo] = useState({
         guest: {
@@ -50,7 +63,7 @@ const RoomReservation = ({ room }) => {
             </div>
             <hr />
             <div className="flex justify-center items-center overflow-hidden">
-                <Calender value={value}></Calender>
+                <Calender handleDateChange={handleDateChange} value={value}></Calender>
             </div>
             <hr />
             <div className="p-4">
