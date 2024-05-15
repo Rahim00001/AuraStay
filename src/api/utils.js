@@ -16,3 +16,9 @@ export const getAdminStat = async () => {
     const { data } = await axiosSecure(`/admin-stat`)
     return data
 }
+
+// Host statistics
+export const getHostStat = async () => {
+    const { data } = await axiosSecure.get('/host-stat')
+    return data
+}
