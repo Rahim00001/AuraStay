@@ -15,12 +15,9 @@ const RoomCard = ({ room }) => {
                     <div className='absolute top-3 right-3'></div>
                 </div>
                 <div className='font-semibold text-lg'>{room.location}</div>
-                <div className='font-light text-neutral-500'>
-                    5 nights
-                </div>
-                <div className='flex flex-row items-center gap-1'>
-                    <div className='font-semibold'>$ {room.price}</div>
-                    <div className='font-light'>{room.category}</div>
+                <div className='flex flex-row items-center justify-between gap-1'>
+                    <div className='font-semibold text-neutral-500'>{room.category}</div>
+                    <div className='font-bold'>$ {room.price}</div>
                 </div>
             </div>
         </Link>
