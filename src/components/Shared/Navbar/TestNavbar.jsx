@@ -1,71 +1,71 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { FaFacebook } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaXmark } from "react-icons/fa6";
-import { FaBars } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaXTwitter, FaXmark, FaBars } from "react-icons/fa6";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const TestNavbar = () => {
-    // show menu
-    const navMenu = document.getElementById('nav_menu'),
-        navToogle = document.getElementById('nav_toggle'),
-        navClose = document.getElementById('nav_close')
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    if (navToogle) {
-        navToogle.addEventListener('click', () => {
-            navMenu.classList.add('show_menu')
-            console.log('dfdf');
-        })
-    }
+    useEffect(() => {
+        const handleScroll = () => {
+            const header = document.getElementById('header');
+            if (window.scrollY >= 50) {
+                header.classList.add('shadow-header');
+            } else {
+                header.classList.remove('shadow-header');
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
-    if (navClose) {
-        navClose.addEventListener('click', () => {
-            navMenu.classList.remove('show_menu')
-        })
-    }
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
-    // remove menu mobile
-    const navLink = document.querySelectorAll('.nav_link')
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
 
-    const linkAction = () => {
-        const navMenu = document.getElementById('nav_menu')
-        navMenu.classList.remove('show_menu')
-    }
-    navLink.forEach(n => n.addEventListener('click', linkAction))
-
-    // Shadow header
-    const scrollHeader = () => {
-        const header = document.getElementById('header')
-        this.scrollY >= 50 ? header.classList.add('shadow-header')
-            : header.classList.remove('shadow-header')
-    }
-    window.addEventListener('scroll', scrollHeader)
     return (
         <header className="header" id="header">
             <Helmet>
                 <script src="./TestNavbar.js"></script>
             </Helmet>
             <nav className="nav container">
-                {/* logo */}
                 <a href="#" className="nav_logo">CrispyCrave</a>
-                <div className="nav_menu" id="nav_menu">
+                <div className={`nav_menu ${isMenuOpen ? 'show_menu' : ''}`} id="nav_menu">
                     <ul className="nav_list">
                         <li>
-                            <a href="#home" className="nav_link active_link">Home</a>
+                            <Link to='/' className='nav_link' onClick={closeMenu}>
+                                Home
+                            </Link>
                         </li>
                         <li>
-                            <a href="#favorites" className="nav_link">Favorites</a>
+                            <Link to='/' className='nav_link' onClick={closeMenu}>
+                                Rooms
+                            </Link>
                         </li>
                         <li>
-                            <a href="#care" className="nav_link">Care</a>
+                            <Link to='/' className='nav_link' onClick={closeMenu}>
+                                Reviews
+                            </Link>
                         </li>
                         <li>
-                            <a href="#products" className="nav_link">Products</a>
+                            <Link to='/' className='nav_link' onClick={closeMenu}>
+                                Contact
+                            </Link>
                         </li>
                         <li>
-                            <a href="#contact" className="nav_link">Contact</a>
+                            <Link to='/' className='nav_link' onClick={closeMenu}>
+                                Dashboard
+                            </Link>
                         </li>
                     </ul>
-                    <div className="nav_close" id="nav_close">
+                    <div className="nav_close" id="nav_close" onClick={closeMenu}>
                         <FaXmark />
                     </div>
                     <div className="nav_social">
@@ -80,7 +80,7 @@ const TestNavbar = () => {
                         </a>
                     </div>
                 </div>
-                <div className="nav_toggle" id="nav_toggle">
+                <div className="nav_toggle" id="nav_toggle" onClick={toggleMenu}>
                     <FaBars />
                 </div>
             </nav>

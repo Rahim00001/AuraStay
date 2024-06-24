@@ -82,9 +82,12 @@
 .nav_close,
 .nav_toggle {
     display: flex;
-    margin-right: 45px;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+.nav_toggle {
+    margin-right: 45px;
 }
 
 /* navigation for mobile device */
